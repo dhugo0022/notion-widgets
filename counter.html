@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <!-- Style -->
+  <style>
+    html, body {
+      font-family: 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+    }
+
+    /* Centralizing */
+    #content {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Counter */
+    #counter-holder {
+      /* Structuring */
+      display: flex;
+      align-items: center;
+      flex-direction: co;
+      column-gap: 0.7em;
+
+      /* Border */
+      line-height: 0;
+
+      padding-top: 4px;
+      padding-inline: 10px;
+      
+      border-color: lightgrey;
+      border-radius: 6px;
+      border-width: 2px;
+      border-style: solid;
+    }
+
+    /* Button */
+    .btn {
+      border-style: none;
+      font-size: 1.3em;
+      color: blue;
+    }
+
+    /* Decrease Button */
+    .minus {
+      padding-bottom: 9px;
+    }
+
+    /* Increase Button */
+    .plus {
+      padding-bottom: 5px;
+    }
+
+    /* Counter */
+    .counter {
+      font-size: 1.2em;
+    }
+    
+  </style>
+</head>
+<body>
+   <!-- HTML -->
+  <div id="content">
+    <div id="counter-holder">
+      <button id="decrease-btn" class="btn minus">-</button>
+      <h3 id="counter" class="counter">0</h3>
+      <button id="increase-btn" class="btn plus">+</button>
+    </div>
+  </div>
+  <!-- Script -->
+  <script>
+    const counter = document.getElementById('counter');
+    const decreaseButton = document.getElementById('decrease-btn');
+    const increaseButton = document.getElementById('increase-btn');
+    let counterValue = Number.parseInt(counter.innerHTML);
+
+    const holdTime = 700;
+    let holdTimeout;
+    let counterUpdateInterval;
+
+    // decrease
+
+    decreaseButton.addEventListener('click', () => {
+      if (counterValue < 1) {
+        return;
+      }
+      
+      counter.innerHTML = --counterValue;
+    });
+
+     // fast decrease
+
+     decreaseButton.addEventListener('mousedown', () => {
+      holdTimeout = setTimeout(() => {
+        counterUpdateInterval = setInterval(() => {
+          counter.innerHTML = --counterValue;
+          if (counterValue < 1) {
+            clearInterval(counterUpdateInterval);
+            clearTimeout(holdTimeout);
+          }
+        }, 100);
+      }, holdTime);
+    });
+
+    decreaseButton.addEventListener('mouseup', () => {
+      clearInterval(counterUpdateInterval);
+      clearTimeout(holdTimeout);
+    });
+
+    // increase
+
+    increaseButton.addEventListener('click', () => {
+      counter.innerHTML = ++counterValue;
+    });
+
+    // fast increase
+
+    increaseButton.addEventListener('mousedown', () => {
+      holdTimeout = setTimeout(() => {
+        counterUpdateInterval = setInterval(() => {
+          counter.innerHTML = ++counterValue;
+        }, 100);
+      }, holdTime);
+    });
+
+    increaseButton.addEventListener('mouseup', () => {
+      clearInterval(counterUpdateInterval);
+      clearTimeout(holdTimeout);
+    });
+
+  </script>
+</body>
+</html>
