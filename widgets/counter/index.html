@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="text/javascript" src="./script.js" defer></script>
+</head>
+<body>
+   <!-- HTML -->
+  <div id="content">
+    <div id="counter-display">
+      <p id="counter-title" style="display: none;">Counter ⚡</p>
+      <div id="counter-view">
+        <button id="decrease-btn" class="btn">
+          <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0F52BA" d="M20 13H4C3.73478 13 3.48043 12.8946 3.29289 12.7071C3.10536 12.5196 3 12.2652 3 12C3 11.7348 3.10536 11.4804 3.29289 11.2929C3.48043 11.1054 3.73478 11 4 11H20C20.2652 11 20.5196 11.1054 20.7071 11.2929C20.8946 11.4804 21 11.7348 21 12C21 12.2652 20.8946 12.5196 20.7071 12.7071C20.5196 12.8946 20.2652 13 20 13Z" fill="#000000"/>
+          </svg>
+        </button>
+        <p id="counter">0</p>
+        <button id="increase-btn" class="btn">
+          <svg alt="Hold to automatically increase..." width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0F52BA" fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 0-1 1v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4a1 1 0 0 0-1-1z" fill="#000000"/>
+          </svg>
+        </button>
+      </div>
+      <button id="reset-btn" class="btn">reset</button>
+    </div>
+  </div>
+</body>
+</html>

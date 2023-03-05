@@ -1,0 +1,59 @@
+:root {
+  --counter-border-radius: 6px;
+  --counter-border-width: 2px;
+  --counter-display-border-color: #;
+}
+
+html, body {
+  font-family: 'Menlo', 'Lucida Console', 'Monaco', 'Consolas', monospace;
+}
+
+/* Centralizing */
+#content {
+  display: flex;
+  justify-content: center;
+}
+
+#counter-display {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  line-height: 0;
+
+  border-color: grey;
+  border-radius: var(--counter-border-radius);
+  border-width: var(--counter-border-width);
+  border-style: solid;
+}
+
+/* Counter */
+#counter-view {
+  /* Structuring */
+  display: flex;
+  align-items: center;
+  column-gap: 0.7em;
+  
+  /* Border */
+  padding-top: 2px;
+  padding-inline: 4px;
+}
+
+/* Button */
+.btn {
+  border-style: none;
+  background-color: unset;
+}
+
+/* Counter */
+#counter {
+  font-weight: bold;
+}
+
+/* Reset button */
+#reset-btn {
+  width: 100%;
+  color: white;
+  background-color: black;
+  border-radius: 0px 0px 4px 4px;
+}
